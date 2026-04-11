@@ -73,6 +73,32 @@
   flex: 1;
 }
 
+.mobileTopBar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.mobileMenuButton {
+  display: none !important;
+  border-radius: 12px !important;
+}
+
+.mobileDrawer :global(.ant-drawer-body) {
+  padding: 12px;
+}
+
+.mobileDrawer :global(.ant-menu) {
+  border-inline-end: none !important;
+}
+
+.mobileDrawer :global(.ant-menu-item) {
+  height: 46px;
+  line-height: 46px;
+  border-radius: 12px;
+  margin-block: 6px;
+}
+
 .pageIntro {
   margin-top: 10px;
 }
@@ -170,17 +196,109 @@
     display: none;
   }
 
-  .header,
+  .mobileMenuButton {
+    display: inline-flex !important;
+    align-items: center;
+    height: 38px;
+    padding-inline: 14px;
+  }
+
+  .mobileTopBar {
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .header {
+    min-height: auto;
+    padding: 16px 20px;
+    gap: 16px;
+  }
+
   .content {
-    padding-left: 20px;
-    padding-right: 20px;
+    padding: 18px 20px 22px;
+  }
+
+  .pageIntro {
+    margin-top: 8px;
+  }
+
+  .pageTitle {
+    font-size: 22px !important;
+    line-height: 1.2 !important;
+  }
+
+  .pageDesc {
+    margin-top: 4px;
+    font-size: 13px;
+    line-height: 1.7;
   }
 
   .headerRight {
+    width: 100%;
     justify-content: flex-start;
+    gap: 10px;
   }
 
   .search {
     width: 100%;
+    order: 3;
+  }
+
+  .statusTag {
+    height: 28px;
+    line-height: 26px;
+    padding-inline: 10px;
+    font-size: 12px;
+  }
+
+  .user {
+    min-width: auto;
+    width: 100%;
+    justify-content: flex-start;
+    padding: 8px 10px;
+  }
+}
+
+@media (max-width: 576px) {
+  .header {
+    padding: 14px 16px;
+    gap: 14px;
+  }
+
+  .content {
+    padding: 14px 16px 18px;
+  }
+
+  .mobileTopBar {
+    gap: 10px;
+  }
+
+  .mobileTopBar :global(.ant-breadcrumb) {
+    width: 100%;
+  }
+
+  .mobileTopBar :global(.ant-breadcrumb ol) {
+    flex-wrap: wrap;
+  }
+
+  .pageTitle {
+    font-size: 20px !important;
+  }
+
+  .pageDesc {
+    font-size: 12px;
+  }
+
+  .search :global(.ant-input-affix-wrapper) {
+    height: 38px;
+    padding-inline: 12px;
+  }
+
+  .statusTag {
+    order: 1;
+  }
+
+  .user {
+    order: 2;
   }
 }

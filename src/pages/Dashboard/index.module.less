@@ -2,10 +2,257 @@
   background: transparent;
 }
 
-.header {
-  margin-bottom: 24px;
+.heroSection {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 22px;
+  padding: 24px;
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at top left, rgba(22, 119, 255, 0.18), transparent 36%),
+    radial-gradient(circle at 85% 20%, rgba(114, 46, 209, 0.16), transparent 28%),
+    linear-gradient(135deg, #ffffff 0%, #f7fbff 50%, #f4f7fc 100%);
+  border: 1px solid rgba(223, 232, 243, 0.95);
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.06);
+}
+
+.heroGlow {
+  position: absolute;
+  top: -60px;
+  right: -20px;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(22, 119, 255, 0.18), transparent 70%);
+  pointer-events: none;
+}
+
+.heroHeader {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 22px;
+}
+
+.heroTag {
+  margin-bottom: 14px;
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #1677ff;
+  background: rgba(22, 119, 255, 0.08);
+}
+
+.heroTitle {
+  margin: 0 !important;
+  font-size: 32px !important;
+  line-height: 1.15 !important;
+}
+
+.heroDesc {
+  margin-top: 12px;
+  margin-bottom: 0 !important;
+  max-width: 680px;
+  color: #667085;
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+.filterBar {
+  justify-content: flex-end;
+}
+
+.searchInput,
+.filterSelect,
+.rangePicker {
+  min-width: 180px;
+}
+
+.searchInput :global(.ant-input-affix-wrapper),
+.filterSelect :global(.ant-select-selector),
+.rangePicker {
+  border-radius: 12px !important;
+}
+
+.metricCard {
+  height: 100%;
+  border-radius: 22px !important;
+  border: 1px solid rgba(227, 234, 243, 0.92) !important;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.05);
+}
+
+.metricCard :global(.ant-card-body) {
+  padding: 22px;
+}
+
+.metricLabel {
+  color: #667085;
+}
+
+.metricValue {
+  margin-top: 10px;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.1;
+  color: #101828;
+}
+
+.metricExtra {
+  margin-top: 10px;
+  color: #475467;
+  font-size: 13px;
+}
+
+.blue {
+  background: linear-gradient(180deg, rgba(22, 119, 255, 0.1) 0%, #ffffff 100%);
+}
+
+.violet {
+  background: linear-gradient(180deg, rgba(114, 46, 209, 0.09) 0%, #ffffff 100%);
+}
+
+.green {
+  background: linear-gradient(180deg, rgba(82, 196, 26, 0.08) 0%, #ffffff 100%);
+}
+
+.orange {
+  background: linear-gradient(180deg, rgba(250, 173, 20, 0.1) 0%, #ffffff 100%);
+}
+
+.panelCard {
+  height: 100%;
+  border-radius: 24px !important;
+  border: 1px solid rgba(227, 234, 243, 0.92) !important;
+  box-shadow: 0 14px 36px rgba(15, 23, 42, 0.05);
+}
+
+.panelCard :global(.ant-card-head) {
+  min-height: 64px;
+  border-bottom: 1px solid #eef2f6;
+}
+
+.panelCard :global(.ant-card-head-title) {
+  font-weight: 700;
+}
+
+.panelCard :global(.ant-card-body) {
+  padding: 22px;
+}
+
+.todoItem {
+  padding-inline: 0 !important;
 }
 
 .progressList {
   width: 100%;
+}
+
+.progressItem {
+  padding: 14px 16px;
+  border-radius: 18px;
+  background: #f8fbff;
+  border: 1px solid #eef4fb;
+}
+
+@media (max-width: 992px) {
+  .heroSection {
+    padding: 20px;
+    border-radius: 22px;
+  }
+
+  .heroTitle {
+    font-size: 26px !important;
+  }
+
+  .heroDesc {
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  .filterBar {
+    justify-content: flex-start;
+    width: 100%;
+  }
+
+  .searchInput,
+  .filterSelect,
+  .rangePicker {
+    width: 100%;
+  }
+
+  .panelCard :global(.ant-card-body) {
+    padding: 18px;
+  }
+}
+
+@media (max-width: 576px) {
+  .heroSection {
+    margin-bottom: 18px;
+    padding: 16px;
+    border-radius: 20px;
+  }
+
+  .heroHeader {
+    margin-bottom: 18px;
+  }
+
+  .heroTag {
+    margin-bottom: 10px;
+    padding: 5px 10px;
+    font-size: 11px;
+  }
+
+  .heroTitle {
+    font-size: 22px !important;
+    line-height: 1.18 !important;
+  }
+
+  .heroDesc {
+    margin-top: 10px;
+    font-size: 13px;
+    line-height: 1.75;
+  }
+
+  .metricCard {
+    border-radius: 18px !important;
+  }
+
+  .metricCard :global(.ant-card-body) {
+    padding: 16px;
+  }
+
+  .metricValue {
+    font-size: 24px;
+  }
+
+  .metricExtra,
+  .metricLabel {
+    font-size: 12px;
+  }
+
+  .panelCard {
+    border-radius: 20px !important;
+  }
+
+  .panelCard :global(.ant-card-head) {
+    min-height: 56px;
+    padding: 0 16px;
+  }
+
+  .panelCard :global(.ant-card-body) {
+    padding: 16px;
+  }
+
+  .todoItem {
+    align-items: flex-start !important;
+  }
+
+  .progressItem {
+    padding: 12px 14px;
+    border-radius: 16px;
+  }
+
+  :global(.ant-table-wrapper) {
+    overflow-x: auto;
+  }
 }

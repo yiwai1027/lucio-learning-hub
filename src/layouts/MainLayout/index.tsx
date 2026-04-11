@@ -2,12 +2,16 @@ import {
   BarChartOutlined,
   DashboardOutlined,
   LogoutOutlined,
+  MenuOutlined,
+  RadarChartOutlined,
   SearchOutlined,
   UserOutlined,
-} from '@ant-design/icons';
+} from '@ant-design/icons'
 import {
   Avatar,
   Breadcrumb,
+  Button,
+  Drawer,
   Dropdown,
   Input,
   Layout,
@@ -15,29 +19,71 @@ import {
   Space,
   Tag,
   Typography,
-} from 'antd';
-import { Outlet, useLocation, useNavigate } from 'react-router-dom';
-import { useAppStore } from '../../store';
-import styles from './index.module.less';
+} from 'antd'
+import { useState } from 'react'
+import { Outlet, useLocation, useNavigate } from 'react-router-dom'
+import { useAppStore } from '../../store'
+import styles from './index.module.less'
 
-const { Header, Sider, Content } = Layout;
+const { Header, Sider, Content } = Layout
 
 const MainLayout = () => {
-  const navigate = useNavigate();
-  const location = useLocation();
-  const { user, logout } = useAppStore();
+  const navigate = useNavigate()
+  const location = useLocation()
+  const { user, logout } = useAppStore()
+  const [drawerOpen, setDrawerOpen] = useState(false)
 
   const menuItems = [
     { key: '/dashboard', icon: <DashboardOutlined />, label: '经营看板' },
+    { key: '/kpi-redux', icon: <BarChartOutlined />, label: 'KPI · Redux' },
+    { key: '/kpi-zustand', icon: <BarChartOutlined />, label: 'KPI · Zustand' },
+    { key: '/learning-showcase', icon: <RadarChartOutlined />, label: '03-26 学习展示' },
+    { key: '/learning-20260410', icon: <RadarChartOutlined />, label: '04-10 学习展示' },
+    { key: '/learning-20260411', icon: <RadarChartOutlined />, label: '04-11 学习展示' },
+    { key: '/learning-archive', icon: <RadarChartOutlined />, label: '03-26~04-10 学习归档' },
     { key: '/about', icon: <BarChartOutlined />, label: '关于系统' },
-  ];
+  ]
 
-  const currentKey = menuItems.find((item) => location.pathname.startsWith(item.key))?.key || '/dashboard';
-  const currentTitle = currentKey === '/dashboard' ? '经营看板' : '关于系统';
+  const pageMetaMap: Record<string, { title: string; desc: string }> = {
+    '/dashboard': {
+      title: '经营看板',
+      desc: '聚合核心 KPI、转化趋势和团队执行数据，快速查看经营情况。',
+    },
+    '/kpi-redux': {
+      title: 'KPI · Redux',
+      desc: '演示在 KPI 场景下如何用 Redux Toolkit 统一管理任务状态与操作流。',
+    },
+    '/kpi-zustand': {
+      title: 'KPI · Zustand',
+      desc: '演示在 KPI 场景下如何用 Zustand 以更轻量的方式完成任务状态管理。',
+    },
+    '/learning-showcase': {
+      title: '03-26 学习展示',
+      desc: '展示 2026-03-26 这一天的学习内容，包括 Redux、Agent 与 Tool Calling 的整理和面试表达。',
+    },
+    '/learning-20260410': {
+      title: '04-10 学习展示',
+      desc: '展示 2026-04-10 这一天的学习内容，包括 Webpack、Vite 和模型输出稳定性的整理与表达。',
+    },
+    '/learning-20260411': {
+      title: '04-11 学习展示',
+      desc: '展示 2026-04-11 这一天的学习内容，包括项目表达、性能优化案例和 AI 产品链路拆解。',
+    },
+    '/learning-archive': {
+      title: '03-26~04-10 学习归档',
+      desc: '按天查看 2026-03-26 到 2026-04-10 期间的每日学习计划页面。',
+    },
+    '/about': {
+      title: '关于系统',
+      desc: '查看项目说明、技术栈和当前系统能力。',
+    },
+  }
+
+  const currentKey =
+    menuItems.find((item) => location.pathname.startsWith(item.key))?.key || '/dashboard'
+  const currentTitle = pageMetaMap[currentKey]?.title ?? '经营看板'
   const currentDesc =
-    currentKey === '/dashboard'
-      ? '聚合核心 KPI、转化趋势和团队执行数据，快速查看经营情况。'
-      : '查看项目说明、技术栈和当前系统能力。';
+    pageMetaMap[currentKey]?.desc ?? '聚合核心 KPI、转化趋势和团队执行数据，快速查看经营情况。'
 
   return (
     <Layout className={styles.mainLayout}>
@@ -59,15 +105,38 @@ const MainLayout = () => {
         </div>
       </Sider>
 
+      <Drawer
+        placement="left"
+        open={drawerOpen}
+        onClose={() => setDrawerOpen(false)}
+        title="页面导航"
+        className={styles.mobileDrawer}
+      >
+        <Menu
+          mode="inline"
+          selectedKeys={[currentKey]}
+          items={menuItems}
+          onClick={({ key }) => {
+            navigate(key)
+            setDrawerOpen(false)
+          }}
+        />
+      </Drawer>
+
       <Layout className={styles.mainContent}>
         <Header className={styles.header}>
           <div className={styles.headerLeft}>
-            <Breadcrumb
-              items={[
-                { title: '首页' },
-                { title: currentTitle },
-              ]}
-            />
+            <div className={styles.mobileTopBar}>
+              <Button
+                type="default"
+                icon={<MenuOutlined />}
+                className={styles.mobileMenuButton}
+                onClick={() => setDrawerOpen(true)}
+              >
+                菜单
+              </Button>
+              <Breadcrumb items={[{ title: '首页' }, { title: currentTitle }]} />
+            </div>
             <div className={styles.pageIntro}>
               <Typography.Title level={3} className={styles.pageTitle}>
                 {currentTitle}
@@ -96,8 +165,8 @@ const MainLayout = () => {
                     icon: <LogoutOutlined />,
                     label: '退出登录',
                     onClick: () => {
-                      logout();
-                      navigate('/login');
+                      logout()
+                      navigate('/login')
                     },
                   },
                 ],
@@ -125,7 +194,7 @@ const MainLayout = () => {
         </Content>
       </Layout>
     </Layout>
-  );
-};
+  )
+}
 
-export default MainLayout;
+export default MainLayout
