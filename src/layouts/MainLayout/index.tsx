@@ -1,25 +1,12 @@
 import {
-  BarChartOutlined,
-  DashboardOutlined,
+  BookOutlined,
   LogoutOutlined,
   MenuOutlined,
   RadarChartOutlined,
-  SearchOutlined,
+  ReadOutlined,
   UserOutlined,
 } from '@ant-design/icons'
-import {
-  Avatar,
-  Breadcrumb,
-  Button,
-  Drawer,
-  Dropdown,
-  Input,
-  Layout,
-  Menu,
-  Space,
-  Tag,
-  Typography,
-} from 'antd'
+import { Avatar, Breadcrumb, Button, Drawer, Dropdown, Layout, Menu, Space, Typography } from 'antd'
 import { useState } from 'react'
 import { Outlet, useLocation, useNavigate } from 'react-router-dom'
 import { useAppStore } from '../../store'
@@ -34,32 +21,35 @@ const MainLayout = () => {
   const [drawerOpen, setDrawerOpen] = useState(false)
 
   const menuItems = [
-    { key: '/dashboard', icon: <DashboardOutlined />, label: '经营看板' },
-    { key: '/kpi-redux', icon: <BarChartOutlined />, label: 'KPI · Redux' },
-    { key: '/kpi-zustand', icon: <BarChartOutlined />, label: 'KPI · Zustand' },
+    { key: '/learning-archive', icon: <BookOutlined />, label: '学习归档' },
     { key: '/learning-showcase', icon: <RadarChartOutlined />, label: '03-26 学习展示' },
+    { key: '/learning-20260330', icon: <RadarChartOutlined />, label: '03-30 学习展示' },
+    { key: '/learning-20260331', icon: <RadarChartOutlined />, label: '03-31 学习展示' },
     { key: '/learning-20260410', icon: <RadarChartOutlined />, label: '04-10 学习展示' },
     { key: '/learning-20260411', icon: <RadarChartOutlined />, label: '04-11 学习展示' },
-    { key: '/learning-archive', icon: <RadarChartOutlined />, label: '03-26~04-10 学习归档' },
-    { key: '/about', icon: <BarChartOutlined />, label: '关于系统' },
+    { key: '/learning-20260414', icon: <RadarChartOutlined />, label: '04-14 学习展示' },
+    { key: '/learning-20260415', icon: <RadarChartOutlined />, label: '04-15 学习展示' },
+    { key: '/learning-20260416', icon: <RadarChartOutlined />, label: '04-16 学习展示' },
+    { key: '/learning-20260417', icon: <RadarChartOutlined />, label: '04-17 学习展示' },
+    { key: '/about', icon: <ReadOutlined />, label: '关于项目' },
   ]
 
   const pageMetaMap: Record<string, { title: string; desc: string }> = {
-    '/dashboard': {
-      title: '经营看板',
-      desc: '聚合核心 KPI、转化趋势和团队执行数据，快速查看经营情况。',
-    },
-    '/kpi-redux': {
-      title: 'KPI · Redux',
-      desc: '演示在 KPI 场景下如何用 Redux Toolkit 统一管理任务状态与操作流。',
-    },
-    '/kpi-zustand': {
-      title: 'KPI · Zustand',
-      desc: '演示在 KPI 场景下如何用 Zustand 以更轻量的方式完成任务状态管理。',
+    '/learning-archive': {
+      title: '学习归档',
+      desc: '按日期查看学习计划、面试答案和阶段性学习沉淀。',
     },
     '/learning-showcase': {
       title: '03-26 学习展示',
       desc: '展示 2026-03-26 这一天的学习内容，包括 Redux、Agent 与 Tool Calling 的整理和面试表达。',
+    },
+    '/learning-20260330': {
+      title: '03-30 学习展示',
+      desc: '展示 2026-03-30 这一天的学习内容，包括 this 的绑定规则、箭头函数的 this，以及 RAG 的基础认知。',
+    },
+    '/learning-20260331': {
+      title: '03-31 学习展示',
+      desc: '展示 2026-03-31 这一天的学习内容，包括原型链、prototype 与 __proto__ 的关系，以及 Embedding 和向量化检索。',
     },
     '/learning-20260410': {
       title: '04-10 学习展示',
@@ -69,30 +59,42 @@ const MainLayout = () => {
       title: '04-11 学习展示',
       desc: '展示 2026-04-11 这一天的学习内容，包括项目表达、性能优化案例和 AI 产品链路拆解。',
     },
-    '/learning-archive': {
-      title: '03-26~04-10 学习归档',
-      desc: '按天查看 2026-03-26 到 2026-04-10 期间的每日学习计划页面。',
+    '/learning-20260414': {
+      title: '04-14 学习展示',
+      desc: '展示 2026-04-14 这一天的学习内容：TypeScript 的 any / unknown / never，高频概念 + 代码写法 + 面试表达。',
+    },
+    '/learning-20260415': {
+      title: '04-15 学习展示',
+      desc: '展示 2026-04-15 这一天的学习内容：TypeScript 泛型与 AI 结构化输出，从前端视角理解复用、约束和数据稳定性。',
+    },
+    '/learning-20260416': {
+      title: '04-16 学习展示',
+      desc: '展示 2026-04-16 这一天的学习内容：联合类型、交叉类型、类型守卫，以及前端接 AI 输出时的校验与兜底。',
+    },
+    '/learning-20260417': {
+      title: '04-17 学习展示',
+      desc: '展示 2026-04-17 这一天的学习内容：tsconfig、strict、模块解析与目标版本，以及 AI 产品里的可观测性与基础工程能力。',
     },
     '/about': {
-      title: '关于系统',
-      desc: '查看项目说明、技术栈和当前系统能力。',
+      title: '关于项目',
+      desc: '查看 lucio-learning-hub 的定位、结构和使用方式。',
     },
   }
 
   const currentKey =
-    menuItems.find((item) => location.pathname.startsWith(item.key))?.key || '/dashboard'
-  const currentTitle = pageMetaMap[currentKey]?.title ?? '经营看板'
+    menuItems.find((item) => location.pathname.startsWith(item.key))?.key || '/learning-archive'
+  const currentTitle = pageMetaMap[currentKey]?.title ?? '学习归档'
   const currentDesc =
-    pageMetaMap[currentKey]?.desc ?? '聚合核心 KPI、转化趋势和团队执行数据，快速查看经营情况。'
+    pageMetaMap[currentKey]?.desc ?? '按日期查看学习计划、面试答案和阶段性学习沉淀。'
 
   return (
     <Layout className={styles.mainLayout}>
       <Sider width={248} theme="light" className={styles.sider}>
         <div className={styles.brand}>
           <Typography.Title level={4} className={styles.brandTitle}>
-            KPI Report
+            Lucio Learning Hub
           </Typography.Title>
-          <Typography.Text className={styles.brandDesc}>经营分析后台</Typography.Text>
+          <Typography.Text className={styles.brandDesc}>学习展示与面试归档项目</Typography.Text>
         </div>
 
         <div className={styles.menuWrap}>
@@ -135,7 +137,7 @@ const MainLayout = () => {
               >
                 菜单
               </Button>
-              <Breadcrumb items={[{ title: '首页' }, { title: currentTitle }]} />
+              <Breadcrumb items={[{ title: '学习项目' }, { title: currentTitle }]} />
             </div>
             <div className={styles.pageIntro}>
               <Typography.Title level={3} className={styles.pageTitle}>
@@ -146,17 +148,6 @@ const MainLayout = () => {
           </div>
 
           <div className={styles.headerRight}>
-            <Input
-              allowClear
-              prefix={<SearchOutlined />}
-              placeholder="搜索指标 / 区域 / 负责人"
-              className={styles.search}
-            />
-
-            <Tag color="blue" className={styles.statusTag}>
-              今日数据已同步
-            </Tag>
-
             <Dropdown
               menu={{
                 items: [
@@ -166,7 +157,7 @@ const MainLayout = () => {
                     label: '退出登录',
                     onClick: () => {
                       logout()
-                      navigate('/login')
+                      navigate('/learning-archive')
                     },
                   },
                 ],
@@ -176,10 +167,10 @@ const MainLayout = () => {
                 <Avatar icon={<UserOutlined />} />
                 <div className={styles.userInfo}>
                   <Typography.Text strong className={styles.userName}>
-                    {user?.name ?? '未登录'}
+                    {user?.name ?? 'Lucio'}
                   </Typography.Text>
                   <Typography.Text type="secondary" className={styles.userRole}>
-                    {user?.role ?? '-'}
+                    前端学习中
                   </Typography.Text>
                 </div>
               </Space>

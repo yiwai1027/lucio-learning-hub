@@ -82,7 +82,7 @@ export const learningArchiveData: LearningDayRecord[] = [
     ai: ['RAG 是什么', '为什么很多 AI 产品不会只靠模型裸答'],
     minimum: ['1 道 JS 高频题', '1 个 this 原理补丁', '1 个 AI 架构概念点', '1 条自己的总结'],
     outputs: ['this 指向怎么判断？', '箭头函数和普通函数在 this 上有什么区别？'],
-    status: '待开始',
+    status: '已沉淀为页面',
   },
   {
     date: '2026-03-31',
@@ -97,7 +97,7 @@ export const learningArchiveData: LearningDayRecord[] = [
     ai: ['Embedding 是什么', '为什么做检索时通常需要向量化'],
     minimum: ['1 道 JS 高频题', '1 个原型链补丁', '1 个 AI 检索概念点', '1 条自己的总结'],
     outputs: ['原型链是什么？', 'prototype 和 __proto__ 有什么区别？'],
-    status: '待开始',
+    status: '已沉淀为页面',
   },
   {
     date: '2026-04-01',
@@ -241,6 +241,32 @@ export const learningArchiveData: LearningDayRecord[] = [
     ],
     outputs: ['Webpack 和 Vite 最大差别是什么？', '为什么 Vite 开发体验通常更快？'],
     status: '待开始',
+  },
+  {
+    date: '2026-04-16',
+    weekday: 'Thursday',
+    duration: '1.5-2 小时',
+    track: '前端求职修复线 + AI 应用认知线（六月底求职加速版）',
+    frontend: ['联合类型、交叉类型、类型守卫是什么', '为什么 TypeScript 不是只会“标类型”'],
+    ai: ['为什么前端接 AI 输出时需要校验和兜底', '从不稳定输出到可展示数据的转换思路'],
+    minimum: ['1 道 TS 高频题', '1 个类型判断补丁', '1 个前端接 AI 输出的工程点', '1 条自己的总结'],
+    outputs: ['联合类型和交叉类型的区别是什么？', '类型守卫是干嘛的？', '写出一段 AI 输出校验理解'],
+    status: '已沉淀为页面',
+  },
+  {
+    date: '2026-04-17',
+    weekday: 'Friday',
+    duration: '1.5-2 小时',
+    track: '前端求职修复线 + AI 应用认知线（六月底求职加速版）',
+    frontend: [
+      'tsconfig 是做什么的',
+      '为什么模块解析、目标版本、严格模式会影响项目开发',
+      '建立 TS 工程配置认知',
+    ],
+    ai: ['为什么 AI 产品常需要可观测性', '日志、失败重试、工具结果展示为什么重要'],
+    minimum: ['1 个 TS 工程配置点', '1 道类型系统题', '1 个 AI 工程观念点', '1 条自己的总结'],
+    outputs: ['tsconfig 是干嘛的？', 'strict 模式为什么重要？', '写出一段 AI 可观测性理解'],
+    status: '已沉淀为页面',
   },
 ]
 
