@@ -21,7 +21,7 @@ const MainLayout = () => {
   const [drawerOpen, setDrawerOpen] = useState(false)
 
   const menuItems = [
-    { key: '/learning-archive', icon: <BookOutlined />, label: '学习归档' },
+    { key: '/learning-archive', icon: <BookOutlined />, label: 'Interview Plan' },
     { key: '/learning-showcase', icon: <RadarChartOutlined />, label: '03-26 学习展示' },
     { key: '/learning-20260330', icon: <RadarChartOutlined />, label: '03-30 学习展示' },
     { key: '/learning-20260331', icon: <RadarChartOutlined />, label: '03-31 学习展示' },
