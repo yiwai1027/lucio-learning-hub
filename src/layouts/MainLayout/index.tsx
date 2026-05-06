@@ -25,6 +25,8 @@ const MainLayout = () => {
     { key: '/learning-showcase', icon: <RadarChartOutlined />, label: '03-26 学习展示' },
     { key: '/learning-20260330', icon: <RadarChartOutlined />, label: '03-30 学习展示' },
     { key: '/learning-20260331', icon: <RadarChartOutlined />, label: '03-31 学习展示' },
+    { key: '/learning-20260401', icon: <RadarChartOutlined />, label: '04-01 学习展示' },
+    { key: '/learning-20260402', icon: <RadarChartOutlined />, label: '04-02 学习展示' },
     { key: '/learning-20260410', icon: <RadarChartOutlined />, label: '04-10 学习展示' },
     { key: '/learning-20260411', icon: <RadarChartOutlined />, label: '04-11 学习展示' },
     { key: '/learning-20260414', icon: <RadarChartOutlined />, label: '04-14 学习展示' },
@@ -50,6 +52,14 @@ const MainLayout = () => {
     '/learning-20260331': {
       title: '03-31 学习展示',
       desc: '展示 2026-03-31 这一天的学习内容，包括原型链、prototype 与 __proto__ 的关系，以及 Embedding 和向量化检索。',
+    },
+    '/learning-20260401': {
+      title: '04-01 学习展示',
+      desc: '展示 2026-04-01 这一天的学习内容，包括深拷贝、浅拷贝、引用类型，以及向量数据库和语义检索的基础认知。',
+    },
+    '/learning-20260402': {
+      title: '04-02 学习展示',
+      desc: '展示 2026-04-02 这一天的学习内容，包括防抖、节流、手写思路，以及 Function Calling 和传统接口调用的区别。',
     },
     '/learning-20260410': {
       title: '04-10 学习展示',

@@ -6,6 +6,9 @@ const About = lazy(() => import('../pages/About'))
 const LearningShowcase = lazy(() => import('../pages/LearningShowcase'))
 const Learning20260330 = lazy(() => import('../pages/Learning20260330'))
 const Learning20260331 = lazy(() => import('../pages/Learning20260331'))
+const Learning20260401 = lazy(() => import('../pages/Learning20260401'))
+const Learning20260402 = lazy(() => import('../pages/Learning20260402'))
+const Learning20260403 = lazy(() => import('../pages/Learning20260403'))
 const Learning20260410 = lazy(() => import('../pages/Learning20260410'))
 const Learning20260411 = lazy(() => import('../pages/Learning20260411'))
 const Learning20260414 = lazy(() => import('../pages/Learning20260414'))
@@ -39,6 +42,18 @@ const router = createBrowserRouter([
       {
         path: '/learning-20260331',
         element: withSuspense(<Learning20260331 />),
+      },
+      {
+        path: '/learning-20260401',
+        element: withSuspense(<Learning20260401 />),
+      },
+      {
+        path: '/learning-20260402',
+        element: withSuspense(<Learning20260402 />),
+      },
+      {
+        path: '/learning-20260403',
+        element: withSuspense(<Learning20260403 />),
       },
       {
         path: '/learning-20260410',

@@ -108,7 +108,7 @@ export const learningArchiveData: LearningDayRecord[] = [
     ai: ['向量数据库是干嘛的', '它和普通数据库在 AI 场景中的差别'],
     minimum: ['1 道 JS 基础题', '1 个引用类型补丁', '1 个 AI 存储概念点', '1 条自己的总结'],
     outputs: ['深拷贝和浅拷贝的区别是什么？', '常见深拷贝方式有什么局限？'],
-    status: '待开始',
+    status: '已沉淀为页面',
   },
   {
     date: '2026-04-02',
@@ -119,7 +119,7 @@ export const learningArchiveData: LearningDayRecord[] = [
     ai: ['Function Calling 和传统接口调用有什么不同', '为什么它适合接外部能力'],
     minimum: ['1 道 JS 高频题', '1 个性能优化补丁', '1 个 AI 调用方式概念点', '1 条自己的总结'],
     outputs: ['防抖和节流的区别是什么？', '它们分别适合什么场景？'],
-    status: '待开始',
+    status: '已沉淀为页面',
   },
   {
     date: '2026-04-03',
@@ -134,7 +134,7 @@ export const learningArchiveData: LearningDayRecord[] = [
     ai: ['多模态是什么', '为什么模型不再只处理文本'],
     minimum: ['1 道 JS 高频题', '1 个 Promise 补丁', '1 个多模态概念点', '1 条自己的总结'],
     outputs: ['Promise 有哪些状态？', 'then 和 catch 的链式执行怎么理解？'],
-    status: '待开始',
+    status: '已沉淀为页面',
   },
   {
     date: '2026-04-04',

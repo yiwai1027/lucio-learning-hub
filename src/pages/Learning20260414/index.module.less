@@ -1,0 +1,98 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.header {
+  padding: 28px;
+  border-radius: 28px;
+  background: linear-gradient(135deg, #f7fbff 0%, #f9f5ff 100%);
+  border: 1px solid #e7eef8;
+}
+
+.header :global(h1.ant-typography) {
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
+.header :global(.ant-typography) {
+  color: #5b6472;
+}
+
+.sectionTitle {
+  margin-bottom: 16px !important;
+}
+
+.metricCard,
+.card,
+.answerCard {
+  height: 100%;
+  border-radius: 20px !important;
+}
+
+.metricCard :global(.ant-card-body) {
+  padding: 20px;
+}
+
+.metricLabel {
+  color: #7b8797;
+  font-size: 13px;
+}
+
+.metricValue {
+  margin-top: 10px;
+  color: #111827;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.metricDesc,
+.desc,
+.summary,
+.answerText {
+  color: #5b6472;
+}
+
+.metricDesc {
+  margin-top: 10px;
+  line-height: 1.8;
+}
+
+.codeBlock {
+  margin: 0 0 12px;
+  padding: 16px;
+  overflow: auto;
+  border-radius: 16px;
+  background: #0f172a;
+  color: #e2e8f0;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.answerBadge {
+  display: inline-block;
+  margin-bottom: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #eef6ff;
+  color: #1677ff;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.answerQuestion {
+  margin-bottom: 12px !important;
+}
+
+.blue {
+  background: linear-gradient(180deg, rgba(239, 247, 255, 0.92) 0%, rgba(255, 255, 255, 0.9) 100%) !important;
+}
+
+.violet {
+  background: linear-gradient(180deg, rgba(246, 242, 255, 0.92) 0%, rgba(255, 255, 255, 0.9) 100%) !important;
+}
+
+.green {
+  background: linear-gradient(180deg, rgba(242, 251, 246, 0.92) 0%, rgba(255, 255, 255, 0.9) 100%) !important;
+}
