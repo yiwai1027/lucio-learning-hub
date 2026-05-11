@@ -154,7 +154,7 @@ export const learningArchiveData: LearningDayRecord[] = [
       '1 条自己的总结',
     ],
     outputs: ['async / await 和 Promise 的关系是什么？', '为什么 await 看起来像同步代码？'],
-    status: '待开始',
+    status: '已沉淀为页面',
   },
   {
     date: '2026-04-05',
@@ -167,8 +167,8 @@ export const learningArchiveData: LearningDayRecord[] = [
     ],
     ai: ['本周 AI 复盘：RAG、Embedding、向量数据库、Function Calling、多模态、上下文窗口'],
     minimum: ['复述 3 个 JS 点', '复述 3 个 AI 概念关系', '1 段本周总结'],
-    outputs: [],
-    status: '待开始',
+    outputs: ['本周总结', '最清楚的点 / 最模糊的点 / 下周承接建议'],
+    status: '已沉淀为页面',
   },
   {
     date: '2026-04-06',
@@ -183,7 +183,7 @@ export const learningArchiveData: LearningDayRecord[] = [
     ai: ['推理模型和普通生成模型有什么差别', '为什么“会推理”会影响用户体验'],
     minimum: ['1 道浏览器高频题', '1 个缓存补丁', '1 个模型能力概念点', '1 条自己的总结'],
     outputs: ['强缓存和协商缓存的区别是什么？', 'ETag 和 Last-Modified 有什么区别？'],
-    status: '待开始',
+    status: '已沉淀为页面',
   },
   {
     date: '2026-04-07',

@@ -27,6 +27,10 @@ const MainLayout = () => {
     { key: '/learning-20260331', icon: <RadarChartOutlined />, label: '03-31 学习展示' },
     { key: '/learning-20260401', icon: <RadarChartOutlined />, label: '04-01 学习展示' },
     { key: '/learning-20260402', icon: <RadarChartOutlined />, label: '04-02 学习展示' },
+    { key: '/learning-20260403', icon: <RadarChartOutlined />, label: '04-03 学习展示' },
+    { key: '/learning-20260404', icon: <RadarChartOutlined />, label: '04-04 学习展示' },
+    { key: '/learning-20260405', icon: <RadarChartOutlined />, label: '04-05 学习展示' },
+    { key: '/learning-20260406', icon: <RadarChartOutlined />, label: '04-06 学习展示' },
     { key: '/learning-20260410', icon: <RadarChartOutlined />, label: '04-10 学习展示' },
     { key: '/learning-20260411', icon: <RadarChartOutlined />, label: '04-11 学习展示' },
     { key: '/learning-20260414', icon: <RadarChartOutlined />, label: '04-14 学习展示' },
@@ -60,6 +64,22 @@ const MainLayout = () => {
     '/learning-20260402': {
       title: '04-02 学习展示',
       desc: '展示 2026-04-02 这一天的学习内容，包括防抖、节流、手写思路，以及 Function Calling 和传统接口调用的区别。',
+    },
+    '/learning-20260403': {
+      title: '04-03 学习展示',
+      desc: '展示 2026-04-03 这一天的学习内容，包括 Promise 的状态与链式调用，以及多模态和真实产品输入方式的基础认知。',
+    },
+    '/learning-20260404': {
+      title: '04-04 学习展示',
+      desc: '展示 2026-04-04 这一天的学习内容，包括 async / await、Promise 的关系，以及上下文窗口与模型容量上限的基础认知。',
+    },
+    '/learning-20260405': {
+      title: '04-05 学习展示',
+      desc: '展示 2026-04-05 这一天的周复盘内容，包括 this、原型链、深浅拷贝，以及 RAG、Function Calling、多模态和上下文窗口的综合串联。',
+    },
+    '/learning-20260406': {
+      title: '04-06 学习展示',
+      desc: '展示 2026-04-06 这一天的学习内容，包括浏览器缓存、强缓存与协商缓存，以及推理模型和普通生成模型的区别。',
     },
     '/learning-20260410': {
       title: '04-10 学习展示',
